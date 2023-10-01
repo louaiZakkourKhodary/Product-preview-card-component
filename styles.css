@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap');
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* Primary */
+  --Dark-cyan: hsl(158, 36%, 37%);
+  --Cream: hsl(30, 38%, 92%);
+
+  /* Neutral */
+  --Very-dark-blue: hsl(212, 21%, 14%);
+  --Dark-grayish-blue: hsl(228, 12%, 48%);
+  --White: hsl(0, 0%, 100%);
+}
+body {
+  background-color: var(--Cream);
+}
+
+p {
+  font-size: 14px;
+  /* font-family: 'Montserrat', sans-serif;
+  font-family: 'Fraunces', serif; */
+}
+main {
+  max-width: 1440px;
+}
+
+/* Create a flex container */
+.flex-container {
+  height: 650px;
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 50px auto;
+}
+
+/* Style for the flex items */
+.item-1 {
+  background-image: url('./images/image-product-desktop.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: 1;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.item-2 {
+  background-color: var(--White);
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.flex-container .item-2 .main-container {
+  text-align: left;
+  width: 100%;
+  margin-top: 20px;
+  padding-left: 50px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 30px;
+}
+.flex-container .item-2 .main-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 12px;
+  color: var(--Dark-grayish-blue);
+}
+.flex-container .item-2 .main-container h3 {
+  font-family: 'Fraunces', serif;
+  color: var(--Very-dark-blue);
+  font-size: 42px;
+  width: 300px;
+}
+.flex-container .item-2 .main-container p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: var(--Dark-grayish-blue);
+  line-height: 1.5;
+  width: 300px;
+}
+.flex-container .item-2 .main-container .price {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.price .price-after-discount {
+  width: 50%;
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--Dark-cyan);
+}
+.price .price-before-discount {
+  width: 50%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  text-decoration: line-through;
+  color: var(--Dark-grayish-blue);
+  padding-left: 45px;
+}
+.btn-container {
+  width: 350px;
+}
+.btn-container .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: var(--Dark-cyan);
+  color: var(--White);
+  width: 100%;
+  padding: 15px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-container .icon {
+  margin-right: 10px;
+}
+
+@media (max-width: 935px) {
+  .flex-container {
+    flex-direction: column;
+    width: 500px;
+  }
+  .item-1 {
+    /* Set a fixed aspect ratio for the container */
+    position: relative;
+    padding-bottom: 100%; /* 16:9 aspect ratio */
+    background-image: url('./images/image-product-mobile.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .item-1::before {
+    /* Clearfix for container */
+    content: '';
+    display: block;
+    padding-top: 10px;
+  }
+  .btn-container .btn {
+    margin-bottom: 20px;
+  }
+  .price .price-after-discount {
+    font-family: 'Fraunces', serif;
+  }
+}
+@media (max-width: 530px) {
+  .flex-container {
+    flex-direction: column;
+    width: 400px;
+  }
+  .flex-container .item-2 .main-container h3 {
+    width: 280px;
+    font-size: 32px;
+  }
+  .flex-container .item-2 .main-container p {
+    width: 280px;
+    font-size: 19px;
+  }
+  .flex-container .item-2 .main-container {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 442px) {
+  .flex-container {
+    flex-direction: column;
+    width: 300px;
+  }
+  .flex-container .item-2 .main-container h3 {
+    width: 250px;
+    font-size: 22px;
+  }
+  .flex-container .item-2 .main-container p {
+    width: 250px;
+    font-size: 16px;
+  }
+  .btn-container .btn {
+    width: 250px;
+  }
+}
